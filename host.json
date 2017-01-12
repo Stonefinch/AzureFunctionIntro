@@ -1,0 +1,7 @@
+﻿{
+    "queues": {
+        // The maximum interval in milliseconds between
+        // queue polls. The default is 1 minute.
+        "maxPollingInterval": 1000
+    }
+}

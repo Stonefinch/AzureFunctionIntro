@@ -1,0 +1,13 @@
+﻿{
+  "disabled": false,
+  "bindings": [
+    {
+      "name": "myQueueItem",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "azure-intro-web-server-logs",
+      "connection": "azure-intro-web-server-logs",
+      "accessRights": "Manage"
+    }
+  ]
+}
