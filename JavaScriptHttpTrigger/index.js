@@ -1,17 +1,21 @@
-﻿module.exports = function(context, req) {
-    context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
+﻿var moment = require('moment');
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
+module.exports = function(context, req) {
+
+    var dateish = req.query.date;
+    context.log("dateish value: " + dateish);
+    
+    var m = moment(dateish);
+
+    if (m.isValid()) {
+        var body = "date is valid: " + m.format("YYYY-MM-DDTHH:mm:ss");
+        context.res = { status: 200, body: body };
     }
     else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
+        var body = "date is not valid.";
+        context.res = { status: 200, body: body };
     }
+
+    // note: can also pass response to done()
     context.done();
 };
