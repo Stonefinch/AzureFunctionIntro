@@ -1,12 +1,19 @@
 ﻿{
-  "disabled": false,
-  "bindings": [
-    {
-      "type": "eventHubTrigger",
-      "name": "myEventHubTrigger",
-      "direction": "in",
-      "path": "hub1",
-      "connection": "EventHubConnection"
-    }
-  ]
+    "disabled": false,
+    "bindings": [
+        {
+            "direction": "in",
+            "type": "eventHubTrigger",
+            "name": "myEventHubTrigger",
+            "connection": "EventHubConnection",
+            "path": "hub1"
+        },
+        {
+            "direction": "out",
+            "type": "table",
+            "name": "$return",
+            "connection": "EventHubToFunctionStorage",
+            "tableName": "Table1"
+        }
+    ]
 }
