@@ -4,6 +4,7 @@ module.exports = function(context, req) {
 
     var dateish = req.query.date;
     context.log("dateish value: " + dateish);
+    context.log("new log line");
     
     var m = moment(dateish);
 
